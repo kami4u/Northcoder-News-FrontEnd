@@ -1,10 +1,10 @@
-const path = require('path')
+const path = require('path');
 
 const PATHS = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
   public: path.resolve(__dirname, 'public'),
   src: path.resolve(__dirname, 'src')
-}
+};
 
 module.exports = {
   entry: PATHS.entry,
@@ -34,7 +34,8 @@ module.exports = {
   },
   devServer: {
     contentBase: PATHS.public,
-    port: 9000,
+    port: 4000,
+    historyApiFallback: true,
     publicPath: '/'
   }
-}
+};

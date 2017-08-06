@@ -2,6 +2,7 @@
   "name": "nortcoder",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
@@ -28,10 +29,12 @@
     "url-loader": "^0.5.9"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bulma": "^0.5.0",
     "font-awesome": "^4.7.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2"
   }
 }
