@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import AllTopics from './AllTopics';
-import ArticleByTopic from './ArticleByTopic';
+import Nav from './Nav';
+import ArticlesByTopic from './ArticlesByTopic';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,14 +12,14 @@ class App extends Component {
   render () {
     return (
       <Router>
-        <div>
+        <Nav>
           <Switch>  
-            <Route exact path='/topics' component={AllTopics}/>
+            <Route exact path='/topics' component={ArticlesByTopic}/>
             <Redirect exact from='/' to='/topics'/>
-            <Route exact path='/topics/:articleName' component={ArticleByTopic}/>
+            <Route path='/topics/:articleName/articles' component={ArticlesByTopic}/>
             <Route component={NoMatch}/>
           </Switch>
-        </div>
+        </Nav>
       </Router>
     );
   }

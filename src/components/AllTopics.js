@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import request from 'axios';
 import {ROOT} from '../../config';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 class AllTopics extends Component {
     constructor (props) {
@@ -19,9 +19,14 @@ class AllTopics extends Component {
     }
     render () {
         return (<div >
-             {this.state.topics.map((topic, i) => {
-                return <div key={i}><h1><Link to={`/topics/${topic.title.toLowerCase()}`}>{topic.title}</Link></h1></div>;
-        })} 
+             {this.state.topics.map((topic,i) =>
+                <NavLink key={i}
+                    to={`/topics/${topic.title.toLowerCase()}/articles`}>
+                    <li>
+                    {topic.title}
+                    </li>
+                </NavLink>
+            )}
         </div>);
     }
 }
