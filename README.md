@@ -24,4 +24,4 @@ $ git clone repository-name
 $ npm i
 $ webpack-dev-server
 ```
-You are now able to interact with the website at <localhost:3000>.
+You are now able to interact with the website at <localhost:4000>.
