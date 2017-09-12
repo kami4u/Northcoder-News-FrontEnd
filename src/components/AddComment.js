@@ -12,27 +12,13 @@ class AddComment extends React.Component {
     } 
     render () {
     return (
-        <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.handleChange} value={this.state.value}/>
-        <button type="submit">Add</button>
-      </form>
-        // <div id='comment-form' className='container' >
-        //     <form className="media-content"
-        //         onSubmit={this.handleSubmit}>
-        //         <div className="field" >
-        //             <label className="label">New comment</label>
-        //             <div className="control">
-        //                 <textarea className="textarea" placeholder="Add your comment"
-        //                     onChange={this.handleChange}></textarea>
-        //             </div>
-        //         </div>
-        //         <div className="field is-grouped">
-        //             <div className="control">
-        //                 <button className="button is-primary">Submit</button>
-        //             </div>
-        //         </div>
-        //         </form>
-        // </div>
+        <div className='container' >
+                <p>Add new comment please!</p>
+            <form onSubmit={this.handleSubmit}>
+                <input className="textarea" onChange={this.handleChange} value={this.state.value} placeholder='Type new comment!'/>
+                <button type="submit">Add</button>
+            </form>
+         </div>
             );
     }
     handleChange (e) {

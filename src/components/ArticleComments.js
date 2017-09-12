@@ -61,7 +61,7 @@ class ArticleComments extends Component {
 
     submitHandler (e) {
         e.preventDefault();
-        console.log(e.target.children[0].value);
+        request.post(`${ROOT}/articles/${this.props.match.params.article_id}/comments`,{'comment': e.target.children[0].value});
         const newComment = {votes: 0, _id: [Id()], body: e.target.children[0].value};
         const comments = Object.assign([], this.state.comments);
         comments.push(newComment);    
