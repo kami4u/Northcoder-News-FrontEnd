@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-import ArticlesByTopic from './ArticlesByTopic';
+import ArticleList from './ArticleList';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,9 +14,9 @@ class App extends Component {
       <Router>
         <Nav>
           <Switch>  
-            <Route exact path='/topics' component={ArticlesByTopic}/>
+            <Route exact path='/topics' component={ArticleList}/>
             <Redirect exact from='/' to='/topics'/>
-            <Route path='/topics/:articleName/articles' component={ArticlesByTopic}/>
+            <Route path='/topics/:articleName/articles' component={ArticleList}/>
             <Route component={NoMatch}/>
           </Switch>
         </Nav>
