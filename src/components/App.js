@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
 import ArticleList from './ArticleList';
+import ArticleComments from './ArticleComments';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +17,7 @@ class App extends Component {
           <Switch>  
             <Route exact path='/topics' component={ArticleList}/>
             <Redirect exact from='/' to='/topics'/>
+            <Route path='/articles/:article_id' component={ArticleComments} />
             <Route path='/topics/:articleName/articles' component={ArticleList}/>
             <Route component={NoMatch}/>
           </Switch>

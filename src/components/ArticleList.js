@@ -41,6 +41,7 @@ class ArticleList extends Component {
         </div>);
     }
     voteHandler (id,e) {
+        request.put(`${ROOT}/articles/${id}?vote=${e}`);
         let newData = Object.assign([], this.state.articles);
         const index = this.state.articles.findIndex((e) => {return e._id === id;});
         e === 'up' ? newData[index].votes++ : e === 'down' ? newData[index].votes-- : newData[index].votes;
