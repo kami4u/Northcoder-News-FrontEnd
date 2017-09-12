@@ -15,6 +15,7 @@ class ArticleComments extends Component {
        this.voteHandler = this.voteHandler.bind(this);
        this.inputHandler = this.inputHandler.bind(this);
        this.submitHandler = this.submitHandler.bind(this);
+       this.deleteHandler = this.deleteHandler.bind(this);
     }
     componentDidMount () {
         request.get(`${ROOT}/articles/${this.props.match.params.article_id}/comments`)
@@ -33,6 +34,7 @@ class ArticleComments extends Component {
                         votes={comment.votes}
                         key={comment._id}
                         voteHandler={this.voteHandler}
+                        deleteHandler={this.deleteHandler}
                     />;
                     })}
             
@@ -44,6 +46,13 @@ class ArticleComments extends Component {
                         /> 
                     </div> 
                 </div>);
+    }
+    deleteHandler(id) {
+        request.delete(`${ROOT}/comments/${id}`);
+        let newData = Object.assign([], this.state.comments);
+        const index = this.state.comments.findIndex((e) => {return e._id === id;});
+         newData.splice(index,1);
+         this.setState({comments: newData});
     }
     voteHandler (id,e) {
         request.put(`${ROOT}/comments/${id}?vote=${e}`);
@@ -61,7 +70,7 @@ class ArticleComments extends Component {
 
     submitHandler (e) {
         e.preventDefault();
-        request.post(`${ROOT}/articles/${this.props.match.params.article_id}/comments`,{'comment': e.target.children[0].value});
+        request.post(`${ROOT}/articles/${this.props.match.params.article_id}/comments`,{'votes': 0, 'comment': e.target.children[0].value});
         const newComment = {votes: 0, _id: [Id()], body: e.target.children[0].value};
         const comments = Object.assign([], this.state.comments);
         comments.push(newComment);    
