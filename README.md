@@ -15,8 +15,6 @@ they have added.
 
 ### Running the code
 
-You will need the back-end API running in order for the app to work. Please visit https://github.com/e-milia/northcodersnews-api and follow the instructions on the page.
-
 To run the front-end code, clone this repository, install dependencies and run `npm start:
 
 ```bash
